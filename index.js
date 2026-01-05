@@ -7,6 +7,13 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+// Ye line Render ko batayegi ki home page par kya dikhana hai
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.get('/pair', async (req, res) => {
     let phone = req.query.phone;
     if (!phone) return res.status(400).json({ error: "Phone number is required" });
@@ -23,7 +30,7 @@ app.get('/pair', async (req, res) => {
             },
             printQRInTerminal: false,
             logger: pino({ level: "fatal" }),
-            browser: ["Chrome (Linux)", "", ""]
+            browser: ["Ubuntu", "Chrome", "20.0.04"]
         });
 
         if (!sock.authState.creds.registered) {
@@ -39,14 +46,14 @@ app.get('/pair', async (req, res) => {
         sock.ev.on("creds.update", saveCreds);
 
         sock.ev.on("connection.update", async (update) => {
-            const { connection, lastDisconnect } = update;
+            const { connection } = update;
             if (connection === "open") {
                 await delay(5000);
-                // Yahan hum user ko Session ID bhej sakte hain
+                // Session ID generate karke WhatsApp par bhejna
                 const sessionID = Buffer.from(JSON.stringify(state.creds)).toString('base64');
-                await sock.sendMessage(sock.user.id, { text: `YOUR_SESSION_ID:${sessionID}` });
+                await sock.sendMessage(sock.user.id, { text: `LEVANTER_SESSION_ID:${sessionID}` });
                 
-                // Safai: Session file delete kar do connect hone ke baad
+                // Safai: Session file delete kar do
                 await delay(2000);
                 fs.removeSync(authPath);
             }
@@ -54,10 +61,13 @@ app.get('/pair', async (req, res) => {
 
     } catch (err) {
         console.log(err);
-        res.status(500).json({ error: "Server Error" });
+        if (!res.headersSent) {
+            res.status(500).json({ error: "Server Error" });
+        }
     }
 });
 
+// Listen command hamesha aakhir mein honi chahiye
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
