@@ -1,94 +1,50 @@
-  # 🚀 SHYAM-MD 🔥
+# 🚀 SHYAM-MD V2 🔥
 
 <p align="center">
-  <img src="[https://files.catbox.moe/ii7qmc.jpg](https://i.ibb.co/spVfdVyH/DEX-SHAYAM.jpg)" width="70%" alt="Main Graphic" />
+  <img src="https://i.ibb.co/spVfdVyH/DEX-SHAYAM.jpg" width="80%" alt="SHYAM-MD LOGO" />
+</p>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintained" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/License-Apache--2.0-blue.svg" alt="License" /></a>
 </p>
 
 ---
-###UPDATES
----
-### 🎧 MUSIC DOWNLOADER
-### 🖼️ RANDOMS ANIME IMAGE'S
-### 😅 FUN STICKERS
-### 🤖 CHATBOT
-### 🔗 ANTILINK
-### *AND MORE COMMANDS*
----
 
-
----
-## 🚀 Get Started  
-
-### 1️⃣ Fork the Repo  
-[![Fork Repo](https://img.shields.io/badge/Fork-Repo-222222?style=for-the-badge&logo=github)](https://github.com/Mrhanstz/HANS-XMD_V2/fork)
-
-### 2️⃣ Session ID Site
-[![Get Session ID](https://img.shields.io/badge/Get-Session%20ID-orange?style=for-the-badge&logo=key)](https://hanstz-sessions.onrender.com/)
+### 🌟 About SHYAM-MD
+**SHYAM-MD V2** ek advanced WhatsApp User Bot hai jo Node.js par bana hai. Ye bot tumhare WhatsApp experience ko automate karne ke liye banaya gaya hai.
 
 ---
 
-### 3️⃣ Get Your Session ID Pair
-[![Get Session ID](https://img.shields.io/badge/Get-Session%20ID-orange?style=for-the-badge&logo=key)](https://hanstz-sessions.onrender.com/pair)
+### 🤖 Main Features
+* **📸 Auto Status Seen**: Dusron ke status apne aap dekhne ke liye.
+* **🔗 Anti-Link**: Group mein unauthorized links ko delete karne ke liye.
+* **🎧 Music Downloader**: YouTube se gane download karne ke liye.
+* **🛡️ Anti-Delete**: Delete kiye gaye messages ko dekhne ke liye.
+* **🎭 Fun Commands**: Stickers, AI Chatbot, aur Random Anime images.
 
 ---
 
-### 4️⃣ Get Your Session ID QR
-[![Get Session ID](https://img.shields.io/badge/Get-Session%20ID-orange?style=for-the-badge&logo=key)](https://hanstz-sessions.onrender.com/qr)
+## 🚀 Step-by-Step Setup
+
+### 1️⃣ Get Session ID
+Pehle niche diye gaye button par click karein aur apna WhatsApp number link karke **Session ID** nikaalein.
+[![Get Session ID](https://img.shields.io/badge/Get-Session%20ID-orange?style=for-the-badge&logo=key)](https://my-session-generator-1-c5io.onrender.com)
+
+### 2️⃣ Deploy on Bot-Hosting
+Bot ko 24/7 online rakhne ke liye [bot-hosting.net](https://bot-hosting.net/) par account banayein.
+* **Startup Command**: `npm install && npm start`
+* **Environment Variables**: Apni `SESSION_ID` aur `OWNER_NUMBER` wahan set karein.
 
 ---
 
-### 5️⃣ Download the ZIP File  
-[![Download ZIP](https://img.shields.io/badge/Download-ZIP-blue?style=for-the-badge&logo=download)](https://github.com/Mrhanstz/HANS-XMD_V2/archive/refs/heads/main.zip)
+## 📢 Community & Support
+Agar koi problem aaye toh hamare WhatsApp group ko join karein:
 
-### BEST PERFORMANCE 
-
-`RENDER`
-
-`KATABUMP`
-
-`BOT HOSTING`
-
-## 📋 Deployment Options  
-
-### 🚀 YouTube How to Deploy On Bot Hosting  
-[![YouTube Tutorial](https://img.shields.io/badge/YouTube-Tutorial-FF0000?style=for-the-badge&logo=youtube)](https://youtu.be/HBUWUVVRzf4?si=4CvKunyL6Wm0Qwm1)
+[![WhatsApp Group](https://img.shields.io/badge/Join-WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp)](https://chat.whatsapp.com/IOEbmfzOD6d9TCjdX5Fi3B)
 
 ---
+### 📝 License
+Distributed under the **Apache License 2.0**. See `LICENSE` for more information.
 
-### 🌍 Hosting Platforms  Create An account Here
-
-#### **Bot Hosting**  
-[![Bot Hosting](https://img.shields.io/badge/Bot%20Hosting-Cloud-4285F4?style=for-the-badge&logo=google-cloud)](https://bot-hosting.net/?aff=1308000667230666802)
-
-#### **Deploy on Replit**  
-[![Deploy on Replit](https://img.shields.io/badge/Replit-Deploy-orange?style=for-the-badge&logo=replit)](https://repl.it/github.com/Mrhanstz/HANS-XMD_V2)  
-
-#### **Google Cloud**  
-[![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Deploy-blue?style=for-the-badge&logo=google-cloud)](https://cloud.google.com/shell/?aff=1097457675723341836)  
-
-#### **Render Hosting**  
-[![Render Hosting](https://img.shields.io/badge/Render-Hosting-maroon?style=for-the-badge&logo=render)](https://dashboard.render.com)  
-
-#### **Codespaces**  
-[![Codespaces](https://img.shields.io/badge/Codespaces-Deploy-3333FF?style=for-the-badge&logo=visual-studio-code)](https://github.com/codespaces/new)  
-
----
-
-## 📲 Join the Communit group  
-[![Join WhatsApp](https://img.shields.io/badge/Join-WhatsApp-25D366?style=for-the-badge&logo=whatsapp)](https://chat.whatsapp.com/IOEbmfzOD6d9TCommunity )
-
----
-
-## ⭐ Support & Contributors  
-
-#### **Stars**  
-[![Stars](https://img.shields.io/github/stars/Mrhanstz/HANS-XMD_V2?color=yellow&style=for-the-badge&logo=starship)](https://github.com/Mrhanstz/HANS-XMD_V2/stargazers)  
-
-#### **Forked By**  
-[![Forked By](https://img.shields.io/github/forks/Mrhanstz/HANS-XMD_V2?color=green&style=for-the-badge&logo=git)](https://github.com/Dexsam07/my-session-generator/edit/main/)  
-
----
-
----
-🚀 *Your support keeps this project alive! Thank you for starring, forking, and sharing!*  
----
+**Developed by [DEX-SHYAM](https://github.com/Dexsam07)**
