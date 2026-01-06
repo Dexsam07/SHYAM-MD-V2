@@ -3,33 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bot Session Generator</title>
+    <title>SHYAM-MD V2 | Session Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://files.catbox.moe/ia1yfk.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body class="bg-slate-900 text-white flex items-center justify-center min-h-screen">
-    <div class="p-8 bg-slate-800 rounded-xl shadow-xl w-full max-w-md text-center">
-        <h2 class="text-2xl font-bold mb-6">Link Your WhatsApp</h2>
-        <input id="phone" type="text" placeholder="919876543210" class="w-full p-3 rounded bg-slate-700 mb-4 border border-slate-600">
-        <button onclick="getPairingCode()" class="w-full bg-blue-600 p-3 rounded font-bold hover:bg-blue-700">Get Pairing Code</button>
+<body class="text-white flex items-center justify-center min-h-screen">
+    <div class="p-8 bg-slate-900/90 backdrop-blur-md rounded-2xl shadow-2xl w-full max-w-md text-center border border-blue-500/30">
+        <img src="https://files.catbox.moe/ia1yfk.png" alt="SHYAM-MD" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-blue-500">
         
-        <div id="displayCode" class="mt-6 text-4xl font-mono tracking-widest text-yellow-400 hidden">
-            </div>
+        <h2 class="text-3xl font-bold mb-2 text-blue-400">SHYAM-MD V2</h2>
+        <p class="text-slate-400 mb-6 text-sm italic">Created by DEX-SHYAM 🇮🇳</p>
+
+        <div class="text-left mb-4">
+            <label class="text-xs font-semibold text-slate-400 uppercase ml-1">WhatsApp Number</label>
+            <input id="phone" type="text" placeholder="917384287404" class="w-full p-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none transition">
+        </div>
+
+        <button onclick="getPairingCode()" class="w-full bg-blue-600 p-3 rounded-lg font-bold hover:bg-blue-700 shadow-lg shadow-blue-500/20 active:scale-95 transition">
+            Get Pairing Code
+        </button>
+        
+        <div id="loading" class="mt-6 hidden text-blue-400 animate-pulse">Connecting to Server...</div>
+        <div id="displayCode" class="mt-6 text-5xl font-mono tracking-widest text-yellow-400 font-bold bg-slate-800 p-4 rounded-lg hidden">
+        </div>
+
+        <div class="mt-8 flex justify-center gap-4 border-t border-slate-700 pt-6">
+            <a href="https://wa.me/917384287404" class="text-xs bg-slate-800 px-3 py-1 rounded-full hover:bg-green-600 transition">Contact</a>
+            <a href="https://chat.whatsapp.com/IOEbmfzOD6d9TCjdX5Fi3B" class="text-xs bg-slate-800 px-3 py-1 rounded-full hover:bg-blue-600 transition">Group</a>
+        </div>
     </div>
 
     <script>
         async function getPairingCode() {
             const phone = document.getElementById('phone').value;
             const display = document.getElementById('displayCode');
-            display.innerText = "Generating...";
-            display.classList.remove('hidden');
+            const loading = document.getElementById('loading');
 
-            const res = await fetch(`/pair?phone=${phone}`);
-            const data = await res.json();
-            
-            if(data.code) {
-                display.innerText = data.code;
-            } else {
-                display.innerText = "Error!";
+            if(!phone) {
+                alert("Please enter your number with country code (e.g. 917384...)");
+                return;
+            }
+
+            loading.classList.remove('hidden');
+            display.classList.add('hidden');
+
+            try {
+                // Yahan maine 'html' ko 'fetch' se replace kiya hai jo sahi tareeqa hai
+                const res = await fetch(`/pair?phone=${phone}`);
+                const data = await res.json();
+                
+                loading.classList.add('hidden');
+                if(data.code) {
+                    display.innerText = data.code;
+                    display.classList.remove('hidden');
+                } else {
+                    display.innerText = "Error!";
+                    display.classList.remove('hidden');
+                }
+            } catch (err) {
+                loading.classList.add('hidden');
+                alert("Server Error! Make sure your Render app is live.");
             }
         }
     </script>
