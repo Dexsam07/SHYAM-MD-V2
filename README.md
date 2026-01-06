@@ -1,50 +1,34 @@
 # 🚀 SHYAM-MD V2 🔥
 
 <p align="center">
-  <img src="https://i.ibb.co/spVfdVyH/DEX-SHAYAM.jpg" width="80%" alt="SHYAM-MD LOGO" />
+  <img src="https://i.ibb.co/spVfdVyH/DEX-SHAYAM.jpg" width="100%" style="border-radius: 15px;" alt="SHYAM-MD-LOGO" />
 </p>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintained" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/License-Apache--2.0-blue.svg" alt="License" /></a>
+  <a href="https://github.com/Dexsam07/my-session-generator/stargazers"><img src="https://img.shields.io/github/stars/Dexsam07/my-session-generator?style=for-the-badge&color=yellow" alt="stars"></a>
+  <a href="https://github.com/Dexsam07/my-session-generator/network/members"><img src="https://img.shields.io/github/forks/Dexsam07/my-session-generator?style=for-the-badge&color=blue" alt="forks"></a>
+  <a href="https://chat.whatsapp.com/IOEbmfzOD6d9TCjdX5Fi3B"><img src="https://img.shields.io/badge/WhatsApp-Group-green?style=for-the-badge&logo=whatsapp" alt="Group"></a>
 </p>
 
 ---
 
-### 🌟 About SHYAM-MD
-**SHYAM-MD V2** ek advanced WhatsApp User Bot hai jo Node.js par bana hai. Ye bot tumhare WhatsApp experience ko automate karne ke liye banaya gaya hai.
+### 🌟 TOP FEATURES
+* 📸 **Auto Status Seen:** Automatically view statuses.
+* 🛡️ **Anti-Delete:** Prevent messages from being deleted for you.
+* 🎧 **Music Player:** High-quality music downloading.
+* 🔗 **Anti-Link:** Protect your groups from spam links.
 
 ---
 
-### 🤖 Main Features
-* **📸 Auto Status Seen**: Dusron ke status apne aap dekhne ke liye.
-* **🔗 Anti-Link**: Group mein unauthorized links ko delete karne ke liye.
-* **🎧 Music Downloader**: YouTube se gane download karne ke liye.
-* **🛡️ Anti-Delete**: Delete kiye gaye messages ko dekhne ke liye.
-* **🎭 Fun Commands**: Stickers, AI Chatbot, aur Random Anime images.
+## ⚙️ Setup & Deployment
 
----
+### 1️⃣ Get Your Session ID
+Pehle niche diye gaye button par click karein aur WhatsApp link karke Session ID hasil karein:
+<p align="left">
+  <a href="https://my-session-generator-1-c5io.onrender.com"><img src="https://img.shields.io/badge/GET%20SESSION%20ID-orange?style=for-the-badge&logo=render" width="200" /></a>
+</p>
 
-## 🚀 Step-by-Step Setup
-
-### 1️⃣ Get Session ID
-Pehle niche diye gaye button par click karein aur apna WhatsApp number link karke **Session ID** nikaalein.
-[![Get Session ID](https://img.shields.io/badge/Get-Session%20ID-orange?style=for-the-badge&logo=key)](https://my-session-generator-1-c5io.onrender.com)
-
-### 2️⃣ Deploy on Bot-Hosting
-Bot ko 24/7 online rakhne ke liye [bot-hosting.net](https://bot-hosting.net/) par account banayein.
-* **Startup Command**: `npm install && npm start`
-* **Environment Variables**: Apni `SESSION_ID` aur `OWNER_NUMBER` wahan set karein.
-
----
-
-## 📢 Community & Support
-Agar koi problem aaye toh hamare WhatsApp group ko join karein:
-
-[![WhatsApp Group](https://img.shields.io/badge/Join-WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp)](https://chat.whatsapp.com/IOEbmfzOD6d9TCjdX5Fi3B)
-
----
-### 📝 License
-Distributed under the **Apache License 2.0**. See `LICENSE` for more information.
-
-**Developed by [DEX-SHYAM](https://github.com/Dexsam07)**
+### 2️⃣ Deploy to Bot-Hosting
+Session ID milne ke baad **bot-hosting.net** par jayein aur ye command run karein:
+```bash
+npm install && npm start
