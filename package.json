@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node session-server.js",
-    "node": "node index.js"
+    "start": "node session-server.js",          // ये पहले से सही है – web pairing server
+    "bot": "node index.js",                     // मैंने "node" को "bot" में बदला – ज्यादा क्लियर
+    "dev": "nodemon session-server.js"          // ऑप्शनल: dev के लिए अगर nodemon install करोगे
   },
   "author": "DEX-SHYAM",
   "license": "Apache-2.0",
