@@ -1,6 +1,56 @@
-/* * 🚀 SHYAM-MD V2 - SECURE LOADER
- * 🔒 OBFLUSCATED FOR SERVER PROTECTION
- */
-const _0x512a=['4909128fVpLsh','cyan','yellow','--------------------------------------------','green','Vercel\x20(Remote\x20Mode)','\x0a✨\x20SHYAM-MD\x20V2\x20IS\x20STARTING...\x20✨','red','❌\x20ERROR:\x20SESSION_ID\x20is\x20missing\x20in\x20Environment\x20Variables!','blue','🔄\x20Fetching\x20encrypted\x20logic\x20from\x20DEX\x20SHYAM\x20Server...','https://shyam-script-server.vercel.app/api/index','✅\x20Script\x20Loaded\x20Successfully!','🤖\x20Initializing\x20WhatsApp\x20Connection...','❌\x20FAILED\x20TO\x20LOAD\x20REMOTE\x20SCRIPT!','📝\x20Error:\x20','unhandledRejection','‼️\x20Unhandled\x20Rejection\x20at:','axios','chalk','fs','path'];const _0x1a2b=function(_0x3c4d5e,_0x512a1a){_0x3c4d5e=_0x3c4d5e-0x0;let _0x1a2b1a=_0x512a[_0x3c4d5e];return _0x1a2b1a;};const axios=require(_0x1a2b(0x12)),chalk=require(_0x1a2b(0x13)),fs=require(_0x1a2b(0x14)),path=require(_0x1a2b(0x15));const REMOTE_URL=_0x1a2b(0xb),SESSION_ID=process['env']['SESSION_ID']||'';async function startBot(){console['log'](chalk[_0x1a2b(0x1)][_0x1a2b(0x0)](_0x1a2b(0x6))),console['log'](chalk[_0x1a2b(0x2)](_0x1a2b(0x3))),console['log'](chalk['white']('👤\x20Owner:\x20')+chalk[_0x1a2b(0x4)]('DEX-SHYAM')),console['log'](chalk['white']('🔗\x20Server:\x20')+chalk[_0x1a2b(0x9)](_0x1a2b(0x5))),console['log'](chalk[_0x1a2b(0x2)](_0x1a2b(0x3)));if(!SESSION_ID)return console['log'](chalk[_0x1a2b(0x7)]['bold'](_0x1a2b(0x8)));try{console['log'](chalk[_0x1a2b(0x9)](_0x1a2b(0xa)));const _0x5921=await axios['get'](REMOTE_URL);if(_0x5921['data'])console['log'](chalk[_0x1a2b(0x4)](_0x1a2b(0xc))),console['log'](chalk['magenta'](_0x1a2b(0xd))),eval(_0x5921['data']);else throw new Error('Empty\x20script\x20received');}catch(_0x4e12){console['log'](chalk[_0x1a2b(0x7)]['bold'](_0x1a2b(0xe))),console['log'](chalk[_0x1a2b(0x7)](_0x1a2b(0xf)+_0x4e12['message']));}}process['on'](_0x1a2b(0x10),(_0x1f2e,_0x2a3d)=>{console['log'](chalk['red'](_0x1a2b(0x11),_0x2a3d,'reason:',_0x1f2e));}),startBot();
+// SHYAM-MD V2 - Secure Loader (De-obfuscated & Fixed Version)
+// Dex - 2026
 
+const axios = require('axios');
+const chalk = require('chalk');
+const fs = require('fs');
+const path = require('path');
 
+const REMOTE_URL = 'https://shyam-script-server.vercel.app/api/index';
+const SESSION_ID = process.env.SESSION_ID || '';
+
+async function startBot() {
+    console.log(chalk.cyan.bold('--------------------------------------------'));
+    console.log(chalk.green.bold('\n✨ SHYAM-MD V2 IS STARTING... ✨\n'));
+    console.log(chalk.yellow('--------------------------------------------'));
+
+    console.log(chalk.white('👤 Owner: ') + chalk.green('DEX-SHYAM'));
+    console.log(chalk.white('🔗 Server: ') + chalk.blue('Vercel (Remote Mode)'));
+
+    console.log(chalk.yellow('--------------------------------------------'));
+
+    if (!SESSION_ID) {
+        console.log(chalk.red.bold('❌ ERROR: SESSION_ID is missing in Environment Variables!'));
+        console.log(chalk.red('Add SESSION_ID in Replit Secrets → Tools → Secrets'));
+        process.exit(1); // Stop if no session
+    }
+
+    try {
+        console.log(chalk.blue('🔄 Fetching encrypted logic from DEX SHYAM Server...'));
+        const response = await axios.get(REMOTE_URL);
+
+        if (response.data && response.data.trim() !== '') {
+            console.log(chalk.green.bold('✅ Script Loaded Successfully!'));
+            console.log(chalk.magenta('🤖 Initializing WhatsApp Connection...'));
+
+            // Remote script execute (eval) - सावधानी से यूज करो
+            eval(response.data);
+        } else {
+            throw new Error('Empty script received from server');
+        }
+    } catch (error) {
+        console.log(chalk.red.bold('❌ FAILED TO LOAD REMOTE SCRIPT!'));
+        console.log(chalk.red('📝 Error: ' + error.message));
+        if (error.response) {
+            console.log(chalk.yellow('Server Response Status: ' + error.response.status));
+        }
+    }
+}
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+    console.log(chalk.red('‼️ Unhandled Rejection at:', promise));
+    console.log(chalk.red('reason:', reason));
+});
+
+startBot();
